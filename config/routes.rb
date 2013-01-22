@@ -1,7 +1,29 @@
-OsxDemo::Application.routes.draw do
-  get "welcome/index"
+OsxDemo::Application.routes.draw do 
+
+root :to => "welcome#index"
+
+#match 'products/:id' => 'products#show'
+#match 'categories/:id' => 'categories#show'
+match 'line_items' => 'line_items#create'
+match 'carts' => 'carts#show'
+
+#match ':controller(/:action(/:id))(.:format)'
+
+#resources :products, :path => 'products'
+#resources :line_items, :path => 'line_items'
+#resources :categories, :path => 'categories'
+#resources :carts, :path => 'carts'
+
+resources :products
+resources :line_items
+resources :categories
+resources :carts
+
+
 
   # The priority is based upon order of creation:
+
+
   # first created -> highest priority.
 
   # Sample of regular route:
@@ -50,7 +72,7 @@ OsxDemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  #root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
